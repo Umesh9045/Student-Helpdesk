@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+    :root {
+        --black: #272D3B;
+        --red: #ED176F;
+        --coral: #F7817F;
+        --gradient: linear-gradient(90deg, var(--red), var(--coral));
+    }
+
+    * {
+
+        font-family: 'Nunito', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        text-decoration: none;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        transition: all .2s linear;
+    }
+
+    body {
+        padding-top: 0%;
+        background: #F5F7FF;
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        overflow-y: scroll;
+
+    }
+
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 4rem;
+    }
+
+    .heading {
+        text-align: center;
+        color: transparent;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-size: 5rem;
+        text-transform: uppercase;
+        padding: 1rem;
+
+    }
+
+
+    nav {
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        text-align: center;
+        background-color: #F5F7FF;
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 50px 10px 50px;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    nav .menu-btn i {
+        font-size: 17px;
+        color: #31344b;
+        box-shadow: -3px -3px 7px #ffffff,
+            3px 3px 5px #ceced1;
+        height: 37px;
+        width: 37px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 37px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+
+    nav .menu-btn i:hover {
+
+        box-shadow: inset -3px -3px 7px #ffffff,
+            inset 3px 3px 5px #ceced1;
+        color: #008CBA;
+    }
+
+    nav .logo {
+        color: black;
+        font-family: 'Sofia';
+        font-size: 28px;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+
+    #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    }
+
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        color: #f2f2f2;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 15px;
+        margin-left: -100%;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        background: none;
+        color: cyan;
+    }
+
+    @media (max-width: 1000px) {
+        nav {
+            padding-right: 10px;
+            padding-left: 1px;
+
+        }
+
+        section {
+            padding-top: 8%;
+        }
+    }
+
+    @media (max-width: 370px) {
+        nav .logo {
+            font-size: 24px;
+        }
+
+    }
+
+    section {
+        padding: 3rem 9%;
+    }
+
+    .home {
+        background: url(../images/home-bg.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        text-align: center;
+    }
+
+    .home .content {
+        padding-top: 5rem;
+        max-width: 70rem;
+        margin: 0 auto;
+    }
+
+    .home .content h3 {
+        font-size: 6.5rem;
+        color: #337AB7;
+
+        font-family: cursive;
+    }
+
+    .btn {
+        align-self: center;
+        display: inline-block;
+        padding: .7rem 3rem;
+        margin-top: 1rem;
+        border-radius: 5rem;
+        background: var(--gradient);
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.7rem;
+        font-family: cursive;
+    }
+
+    .btn:hover {
+        transform: scale(1.1);
+    }
+
+    .features .box-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .features .box-container .box {
+        margin: 1rem;
+        border-radius: .5rem;
+        text-align: center;
+        background: rgba(237, 23, 111, .05);
+        padding: 1rem;
+        flex: 1 1 30rem;
+        cursor: pointer;
+    }
+
+    .features .box-container .box i {
+        color: var(--red);
+        font-size: 5rem;
+        padding: 1rem;
+    }
+
+    .features .box-container .box h3 {
+        color: var(--black);
+        font-size: 2.4rem;
+    }
+
+    .features .box-container .box p {
+        color: #666;
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .features .box-container .box:hover {
+        background: var(--gradient);
+    }
+
+    .features .box-container .box:hover>* {
+        color: #fff;
+    }
+
+    .about .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .about .row .image {
+        flex: 1 1 40rem;
+    }
+
+    .about .row .image img {
+        width: 100%;
+    }
+
+    .usage .row {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .usage .row .box-container .box {
+        padding: 1rem 0;
+    }
+
+    .center {
+        width: 100%;
+        margin: auto;
+    }
+
+
+
+    .container {
+        max-width: 480px;
+        min-height: 0.8px;
+        width: 90%;
+        padding: 5px;
+        border-radius: 8px;
+        margin-bottom: 10%;
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+
+    .container:hover {
+        box-shadow: 0 0 4px 2px rgba(0, 140, 186, 0.5);
+    }
+</style>
+
+<body>
+
+    <nav>
+        <div class="logo">Student Helpdesk</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="grievance.html">Grievance</a></li>
+            <li><a href="https://fe.ges-coengg.org/" target="_blank">Moodle LMS</a></li>
+            <li><a href="https://library.ges-coengg.org/" target="_blank">GESCOE E-Resourses</a></li>
+            <li><a href="contact.html">Contact & Feeback</a></li>
+            <li><a href="Our Team.html" target="_blank">Our Team</a></li>
+            <li><a class="active" href="#">Android App</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br>
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Explore our App</h3>
+            <a href="Student-Helpdesk.apk" class="btn">Download Now</a>
+        </div>
+    </section>
+
+    <!-- features section starts  -->
+    <section class="features" id="features">
+        <h1 class="heading">app features</h1>
+        <div class="box-container">
+            <div class="box">
+                <br><br>
+                <i class="fas fa-magic"></i>
+                <h3>smooth design</h3>
+                <br><br>
+            </div>
+
+            <div class="box">
+                <br><br>
+                <i class="fas fa-shield-alt"></i>
+                <h3>privacy protect</h3>
+                <br><br>
+            </div>
+        </div>
+    </section>
+    <!-- features section ends -->
+
+
+    <!-- about section starts  -->
+    <section class="about" id="about">
+        <h1 class="heading">Take a Look Around our App</h1>
+        <div class="row">
+            <iframe width="360" height="630" src="https://www.youtube-nocookie.com/embed/mUN1B3ggKAg"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+    <!-- about section ends -->
+
+
+    <!-- usage section starts  -->
+    <section class="usage" id="usage">
+        <h1 class="heading">Student Helpdesk KeyFeatures</h1>
+
+        <div class="container">
+            <div class="box">
+                <img src="images/grievance.png" alt="" class="center">
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+        <div class="container">
+            <div class="box">
+                <img src="images/moodle.png" alt="" class="center">
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+        <div class="container">
+            <div class="box">
+                <img src="images/resources.png" alt="" class="center">
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+        <div class="container">
+            <div class="box">
+                <img src="images/gescoe1.png" alt="" class="center">
+            </div>
+        </div>
+    </section>
+
+    <!-- usage section ends --
+</body>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="http://fonts.cdnfonts.com/css/cavolini" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Helpdesk | Home</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        padding-top: 0%;
+        font-weight: 300;
+        overflow-y: scroll;
+    }
+
+    nav {
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        text-align: center;
+        background-color: #040508;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        padding: 10px 50px 10px 50px;
+
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+
+    }
+
+    nav .menu-btn i {
+
+        font-size: 17px;
+        color: #eeeff5;
+        box-shadow: -3px -3px 7px red,
+            3px 3px 5px red;
+        height: 37px;
+        width: 37px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 37px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+
+    nav .menu-btn i:hover {
+
+        box-shadow: inset -3px -3px 7px #ffffff,
+            inset 3px 3px 5px #ceced1;
+        color: #008CBA;
+    }
+
+    nav .logo {
+        color: rgb(211, 9, 9);
+        font-family: 'Sofia';
+        font-size: 28px;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+
+    #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    }
+
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        color: #f2f2f2;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 15px;
+        margin-left: -100%;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        background: none;
+        color: cyan;
+    }
+
+    @media (max-width: 1000px) {
+        nav {
+            padding-right: 20px;
+            padding-left: 0px;
+        }
+
+        section {
+            padding-top: 8%;
+        }
+    }
+
+
+    @media (max-width: 370px) {
+        nav .logo {
+            font-size: 24px;
+        }
+    }
+
+
+    html {
+        height: 100%;
+    }
+
+    .bg {
+        animation: slide 3s ease-in-out infinite alternate;
+        background-image: linear-gradient(-60deg, #020304 50%, rgb(153, 233, 173) 50%);
+        bottom: 0;
+        left: -50%;
+        opacity: .5;
+        position: fixed;
+        right: -50%;
+        top: 0;
+        z-index: -1;
+    }
+
+    .bg2 {
+        animation-direction: alternate-reverse;
+        animation-duration: 4s;
+    }
+
+    .bg3 {
+        animation-duration: 5s;
+    }
+
+    .content {
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: .25em;
+        box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+        box-sizing: border-box;
+        left: 50%;
+        padding: 10vmin;
+        position: fixed;
+        text-align: center;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1 {
+        font-family: monospace;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(-25%);
+        }
+
+        100% {
+            transform: translateX(25%);
+        }
+    }
+
+    section {
+        min-height: 100vh;
+        width: 100%;
+
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 0.7rem;
+
+    }
+
+    .container {
+        max-width: 480px;
+        min-height: 0.8px;
+        width: 90%;
+        padding: 5px;
+        border-radius: 8px;
+        margin-bottom: 10%;
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 45%;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+
+    }
+
+    h1 {
+        color: #0c0734;
+    }
+</style>
+
+<body>
+
+    <nav>
+        <div class="logo">Student Helpdesk</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="grievance.html">Grievance</a></li>
+            <li><a href="https://fe.ges-coengg.org/" target="_blank">Moodle LMS</a></li>
+            <li><a href="https://library.ges-coengg.org/" target="_blank">GESCOE E-Resourses</a></li>
+            <li><a href="https://ges-coengg.org/" target="_blank">GESCOE Official</a></li>
+            <li><a href="contact.html">Contact & Feeback</a></li>
+            <li><a href="Our Team.html" target="_blank">Our Team</a></li>
+            <li><a href="App landing Page.html">Android App</a></li>
+        </ul>
+    </nav>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <section>
+        <div class="container">
+            <a href="./grievance.html">
+                <br>
+                <img src="images/grievance.png" alt="Post Grievance" style="width:95%; margin:auto;">
+            </a>
+            <h1 style="text-decoration: none;">Post Grievance </h1>
+            <p style="text-decoration: none;">Privacy in your Hand!!!</p>
+
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <div class="container">
+            <a href="https://fe.ges-coengg.org/">
+                <br>
+                <img src="images/moodle.png" alt="Moodle LMS" style="width:95%; margin:auto;">
+            </a>
+            <h1>E-Shiksha Moodle LMS</h1>
+            <p>Learn online!!!</p>
+
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <div class="container">
+            <a href="https://library.ges-coengg.org/">
+                <br>
+                <img src="images/resources.png" alt="E-resourse" style="width:95%; margin:auto;">
+            </a>
+            <h1>GESCOE Learning Resourses!!!</h1>
+            <p>Yet to come!!!</p>
+
+        </div>
+
+        <br><br><br><br><br><br><br><br><br>
+        <div class="container">
+            <a href="https://ges-coengg.org/">
+                <br>
+                <img src="images/gescoe1.png" alt="GESCOE Official" style="width:95%; margin:auto;">
+            </a>
+            <h1>Institude Official Website</h1>
+            <p>Yet to come!!!</p>
+
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+    </section>
+</body>
+
+</html>
